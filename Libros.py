@@ -3,22 +3,22 @@ import os
 # Pongo una lista vacía llamada biblioteca para guardar los libros
 biblioteca = []
 
-# Variables globales para el flujo del menú (estilo clase.py)
+# Variables 
 titulo = ""
 autor = ""
 categoria = ""
 anio = 0
 opcion = ""
 
-#Función para registrar un nuevo libro.
-#Valida que los campos no estén vacíos, que no se repita el título
-#y que el año sea un número entero válido usando try/except.
+#Funcion para registrar un nuevo libro.
+#Valida que los campos no esten vacios, que no se repita el titulo
+#y que el año sea un numero entero valido usando try/except.
 def registrar_libro(titulo, autor, categoria, anio_texto):
     
-    # 1. Validar campos vacíos
+    # 1. Validar campos vacios
     if titulo == "" or autor == "" or categoria == "":
-        print("Error: Todos los campos son obligatorios (Título, Autor y Categoría).")
-        return # Corta la función y regresa al menú
+        print("Error: Todos los campos son obligatorios (Titulo, Autor y Categoría).")
+        return # Corta la funcion y regresa al menu
 
     # 2. Validar que no esté duplicado
     for libro in biblioteca:
@@ -45,7 +45,7 @@ def registrar_libro(titulo, autor, categoria, anio_texto):
 
 def mostrar_libros():
     
-    #Función para leer y mostrar en pantalla todos los libros registrados.
+    #Funcion para leer y mostrar en pantalla todos los libros registrados.
     
     if len(biblioteca) == 0:
         print("No hay libros registrados.")
@@ -57,8 +57,8 @@ def mostrar_libros():
 
 def actualizar_libro(titulo_buscar, nuevo_autor, nueva_categoria, nuevo_anio_texto):
     
-    #Función para buscar un libro por su título y actualizar sus campos
-    #validando que no queden vacíos y que el año sea correcto.
+    #Funcion para buscar un libro por su titulo y actualizar las opciones
+    #verificando que no queden vacíos y que el año sea correcto.
     
     if nuevo_autor == "" or nueva_categoria == "":
         print("Error: El autor y la categoría no pueden quedar vacíos.")
@@ -82,7 +82,7 @@ def actualizar_libro(titulo_buscar, nuevo_autor, nueva_categoria, nuevo_anio_tex
 
 def eliminar_libro(titulo_buscar):
     
-    #Función para buscar un libro por su título y removerlo de la lista.
+    #Funcion para buscar un libro por su título y removerlo de la lista.
     
     for libro in biblioteca:
         if libro["titulo"].lower() == titulo_buscar.lower():
@@ -93,19 +93,17 @@ def eliminar_libro(titulo_buscar):
         print(f"Libro '{titulo_buscar}' no encontrado.")
 
 
-# =====================================================
-# MENÚ PRINCIPAL INTERACTIVO
-# =====================================================
+
 while True:
     os.system("cls")
 
     print("----Administrador de Biblioteca----")
-    print("1) Agregar Libro")
-    print("2) Mostrar Libros")
-    print("3) Modificar Libro")
-    print("4) Eliminar Libro")
-    print("5) Salir")
-    print("------------------------\n")
+    print("1. Agregar Libro")
+    print("2. Mostrar Libros")
+    print("3. Modificar Libro")
+    print("4. Eliminar Libro")
+    print("5. Salir")
+    
     opcion = input("Opcion: ")
 
     if opcion == "1":
@@ -116,7 +114,7 @@ while True:
         categoria = input("Categoría: ").strip()
         anio_entrada = input("Año de publicación: ").strip() # Lo pedimos como texto primero
         
-        # Le pasamos todo a la función para que ella valide y decida si registrar o usar return
+        # Le pasamos todo a la funcion para que ella valide y decida si registrar o usar return
         registrar_libro(titulo, autor, categoria, anio_entrada)
         input("\nEnter para continuar...")
         
@@ -135,7 +133,7 @@ while True:
         nueva_categoria = input("Nueva Categoría: ").strip()
         nuevo_anio_entrada = input("Nuevo Año: ").strip()
 
-        # La función se encarga de validar con return si algo falla
+        # La funcion se encarga de validar con return si algo falla
         actualizar_libro(titulo_buscar, nuevo_autor, nueva_categoria, nuevo_anio_entrada)
         input("\nEnter para continuar...")
         
