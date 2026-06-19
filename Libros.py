@@ -30,6 +30,10 @@ def registrar_libro(titulo, autor, categoria, anio_texto):
     except ValueError:
         print("Error: Debe ingresar un año válido (número entero).")
         return
+    if anio_int > 0:
+        print("Error: El año no puede ser un número negativo o cero.")
+        return
+
 
     # Si pasa todas las validaciones, se crea el diccionario
     nuevo_libro = {
@@ -66,6 +70,9 @@ def actualizar_libro(titulo_buscar, nuevo_autor, nueva_categoria, nuevo_anio_tex
         anio_int = int(nuevo_anio_texto)
     except ValueError:
         print("Error: Debe ingresar un año válido (número entero).")
+        return
+    if anio_int > 0:
+        print("Error: El año no puede ser un número negativo o cero.")
         return
 
     for libro in biblioteca:
@@ -111,6 +118,14 @@ while True:
         autor = input("Autor: ").strip()
         categoria = input("Categoría: ").strip()
         anio_entrada = input("Año de publicación: ").strip() # Lo pedimos como texto primero
+        while True:
+            anio_entrada = input("Año de publicación: ").strip()
+            try:
+                if int(anio_entrada) > 0:
+                    break  
+                print("Error: El año tiene que ser mayor a cero.")
+            except ValueError:
+                print("Error: El año tiene que ser un numero entero. Intente otra vez.")
         
         # Le pasamos todo a la funcion para que ella valide y decida si registrar o usar return
         registrar_libro(titulo, autor, categoria, anio_entrada)
@@ -130,6 +145,14 @@ while True:
         nuevo_autor = input("Nuevo Autor: ").strip()
         nueva_categoria = input("Nueva Categoría: ").strip()
         nuevo_anio_entrada = input("Nuevo Año: ").strip()
+        while True:
+            anio_entrada = input("Año de publicación: ").strip()
+            try:
+                if int(anio_entrada) > 0:
+                    break  
+                print("Error: El año tiene que ser mayor a cero.")
+            except ValueError:
+                print("Error: El año tiene que ser un numero entero. Intente otra vez.")
 
         # La funcion se encarga de validar con return si algo falla
         actualizar_libro(titulo_buscar, nuevo_autor, nueva_categoria, nuevo_anio_entrada)
