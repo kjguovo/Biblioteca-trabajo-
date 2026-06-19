@@ -1,9 +1,7 @@
 import os
 
-# Pongo una lista vacía llamada biblioteca para guardar los libros
 biblioteca = []
-
-# Variables 
+ 
 titulo = ""
 autor = ""
 categoria = ""
@@ -15,18 +13,18 @@ opcion = ""
 #y que el año sea un numero entero valido usando try/except.
 def registrar_libro(titulo, autor, categoria, anio_texto):
     
-    # 1. Validar campos vacios
+    # Validar campos vacios
     if titulo == "" or autor == "" or categoria == "":
         print("Error: Todos los campos son obligatorios (Titulo, Autor y Categoría).")
         return # Corta la funcion y regresa al menu
 
-    # 2. Validar que no esté duplicado
+    # Validar que no esté duplicado
     for libro in biblioteca:
         if libro["titulo"].lower() == titulo.lower():
             print("Error: Ese libro ya existe en la biblioteca.")
             return
 
-    # 3. Validar el formato numérico con try/except
+    # Validar el formato numérico con try/except
     try:
         anio_int = int(anio_texto)
     except ValueError:
