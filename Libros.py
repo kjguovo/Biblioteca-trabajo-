@@ -30,7 +30,7 @@ def registrar_libro(titulo, autor, categoria, anio_texto):
     except ValueError:
         print("Error: Debe ingresar un año válido (número entero).")
         return
-    if anio_int > 0:
+    if anio_int <= 0:
         print("Error: El año no puede ser un número negativo o cero.")
         return
 
@@ -71,7 +71,7 @@ def actualizar_libro(titulo_buscar, nuevo_autor, nueva_categoria, nuevo_anio_tex
     except ValueError:
         print("Error: Debe ingresar un año válido (número entero).")
         return
-    if anio_int > 0:
+    if anio_int <= 0:
         print("Error: El año no puede ser un número negativo o cero.")
         return
 
@@ -117,7 +117,7 @@ while True:
         titulo = input("Título: ").strip()
         autor = input("Autor: ").strip()
         categoria = input("Categoría: ").strip()
-        anio_entrada = input("Año de publicación: ").strip() # Lo pedimos como texto primero
+        
         while True:
             anio_entrada = input("Año de publicación: ").strip()
             try:
@@ -146,8 +146,8 @@ while True:
         nueva_categoria = input("Nueva Categoría: ").strip()
         nuevo_anio_entrada = input("Nuevo Año: ").strip()
         while True:
-            anio_entrada = input("Año de publicación: ").strip()
             try:
+                anio_entrada = input("Año de publicación: ").strip()
                 if int(anio_entrada) > 0:
                     break  
                 print("Error: El año tiene que ser mayor a cero.")
