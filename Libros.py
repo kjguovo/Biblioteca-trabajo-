@@ -8,9 +8,9 @@ categoria = ""
 anio = 0
 opcion = ""
 
-#Funcion para registrar un nuevo libro.
+#Funcion para registrar un nuevo libro
 #Valida que los campos no esten vacios, que no se repita el titulo
-#y que el año sea un numero entero valido usando try/except.
+#y que el año sea un numero entero valido usando try/except
 def registrar_libro(titulo, autor, categoria, anio_texto):
     
     # Validar campos vacios
@@ -43,7 +43,7 @@ def registrar_libro(titulo, autor, categoria, anio_texto):
 
 def mostrar_libros():
     
-    #Funcion para leer y mostrar en pantalla todos los libros registrados.
+    #Funcion para leer y mostrar en pantalla todos los libros registrados
     
     if len(biblioteca) == 0:
         print("No hay libros registrados.")
@@ -56,7 +56,7 @@ def mostrar_libros():
 def actualizar_libro(titulo_buscar, nuevo_autor, nueva_categoria, nuevo_anio_texto):
     
     #Funcion para buscar un libro por su titulo y actualizar las opciones
-    #verificando que no queden vacíos y que el año sea correcto.
+    #verificando que no queden vacíos y que el año sea correcto
     
     if nuevo_autor == "" or nueva_categoria == "":
         print("Error: El autor y la categoría no pueden quedar vacíos.")
@@ -80,7 +80,7 @@ def actualizar_libro(titulo_buscar, nuevo_autor, nueva_categoria, nuevo_anio_tex
 
 def eliminar_libro(titulo_buscar):
     
-    #Funcion para buscar un libro por su título y removerlo de la lista.
+    #Funcion para buscar un libro por su título y removerlo de la lista
     
     for libro in biblioteca:
         if libro["titulo"].lower() == titulo_buscar.lower():
